@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 #{title} - Add a message
+  form(action="/new" method="POST")
+    label(for="name") Name:
+    input(type="text" id="name" name="name" placeholder="")
+    label(for="text") Text:
+    textarea(type="text" id="text" name="text" placeholder="")
+    input(type="submit")
