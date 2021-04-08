@@ -3,6 +3,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}. Coool
+  a(class='button' href='/new') Post new message
+  br
+  br
   each message in messages
     div.message
       p= message.text

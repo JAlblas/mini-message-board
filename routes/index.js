@@ -25,7 +25,15 @@ router.get('/new', function(req, res, next) {
 });
 
 router.post('/new', function(req, res, next) {
-  res.send("HAHA");
+  if (req.body.name && req.body.text) {
+    const messageUser = req.body.name;
+    const messageText = req.body.text;
+    messages.push({text: messageText, user: messageUser, added: new Date()});
+    res.redirect('/')
+  } else {
+    throw next(Error("Form data missing!"));
+  }
+
 });
 
 module.exports = router;
